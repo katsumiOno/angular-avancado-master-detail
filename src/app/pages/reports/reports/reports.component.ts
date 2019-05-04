@@ -95,7 +95,7 @@ export class ReportsComponent implements OnInit {
       //if found entries, then sum entries amount and add to chartData
       if (filteredEntries.length > 0) {
         const totalAmount = filteredEntries.reduce(
-          (total, entry) => total + currencyFormatter.unformat(entry.amount, {code: 'BRL'})
+          (total, entry) => total + currencyFormatter.unformat(entry.amount, {code: 'BRL'}), 0
         )
 
         chartData.push({
@@ -105,6 +105,7 @@ export class ReportsComponent implements OnInit {
       }
     });
     
+      console.log(chartData);
     return {
       labels: chartData.map(item => item.categoryName),
       datasets: [{
